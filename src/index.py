@@ -25,12 +25,10 @@ Hook for databases
 def _connect_db():
     db.connect(reuse_if_open=True)
 
-
 @hook("after_request")
 def _close_db():
     if not db.is_closed():
         db.close()
-
 
 @hook("after_request")
 def _enable_cors():
